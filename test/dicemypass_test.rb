@@ -3,6 +3,10 @@ require 'dicemypass'
 
 class DicemypassTest < Minitest::Test
   # def setup; end
+  def setup
+    @unsafe_pass = 'passw0rd'
+    @safe_pass = Dicemypass.gen_passphrase(pass_length = 12)
+  end
 
   def test_that_it_has_a_version_number
     refute_nil ::Dicemypass::VERSION
@@ -22,14 +26,14 @@ class DicemypassTest < Minitest::Test
   # def test_vulnerable_pass; end
   def test_vulnerable_pass
     # check_pwned should flag this password
-    vuln_count = Dicemypass.check_pwned('passw0rd')
+    vuln_count = Dicemypass.check_pwned(@unsafe_pass)
     refute_nil vuln_count
   end
 
   # def test_secure_pass; end
   def test_secure_pass
     # check_pwned should not flag this passphrase
-    vuln_count = Dicemypass.check_pwned('code dose dot com')
+    vuln_count = Dicemypass.check_pwned(@safe_pass)
     assert_nil vuln_count
   end
 end
