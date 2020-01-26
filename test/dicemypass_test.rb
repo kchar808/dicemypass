@@ -27,4 +27,9 @@ class DicemypassTest < Minitest::Test
   end
 
   # def test_secure_pass; end
+  def test_secure_pass
+    # check_pwned should not flag this passphrase
+    vuln_count = Dicemypass.check_pwned('code dose dot com')
+    assert_nil vuln_count
+  end
 end
