@@ -20,6 +20,11 @@ class DicemypassTest < Minitest::Test
   end
 
   # def test_vulnerable_pass; end
+  def test_vulnerable_pass
+    # check_pwned should flag this password
+    vuln_count = Dicemypass.check_pwned('passw0rd')
+    refute_nil vuln_count
+  end
 
   # def test_secure_pass; end
 end
