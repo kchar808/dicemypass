@@ -1,5 +1,5 @@
 require 'thor'
-require 'dmp'
+require 'dicemypass'
 require 'colorize'
 require 'clipboard'
 
