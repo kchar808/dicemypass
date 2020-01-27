@@ -40,21 +40,21 @@ irb(main):002:0> Dmp.gen_passphrase(4)
 Generate a passphrase
 
 ```
-$ bundle exec dicemypass gen
+$ dicemypass
 - Passphrase: sank universal detract plus sufferer backpedal caucasian
 ```
 
 or 
 
 ```
-$ bundle exec dicemypass gen 3
+$ dicemypass gen 3
 - Passphrase: hemstitch hacksaw wrist
 ```
 
 Generate passphrase and copy to clipboard and checks if password appears in HIBP datasets
 
 ```
-$ bundle exec dmp gen 3 -c -H
+$ dicemypass gen 3 -c -H
 - Passphrase: imaginary mummify unsaddle
 - Copied to clipboard.
 - Password was not found in a dataset.
@@ -63,7 +63,7 @@ $ bundle exec dmp gen 3 -c -H
 Check a password of yours
 
 ```
-$ bundle exec dicemypass check
+$ dicemypass check
 Enter your password, press ENTER when you're done.
 Password (hidden): ******
 Your password appears in 1581 datasets!
