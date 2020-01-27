@@ -51,10 +51,28 @@ module Dicemypass
       # the safe_pass_msg.
       puts dataset_count ? vuln_pass_msg : safe_pass_msg if options[:hibp]
     end
+    
     desc 'check', 'Check if a password/passphrase is vulnerable.'
-    def check_pass; end
+    def check_pass
+      puts "Enter your password, press ENTER when you're done."
+      password = ask('Password (hidden):'.yellow, echo: false)
+      (puts "Aborted.".red.bold; exit) if password.empty?
+
+
+      dataset_count = Dicemypass.check_pwned(password)
+      vuln_msg = "Your password appears in #{dataset_count} datasets!".red.bold
+      safe_msg = "Your password was not found in a dataset.".green.bold
+      puts dataset_count ? vuln_msg : safe_msg
+    end
 
     desc 'about', 'Displays version number and information'
-    def about; end
+    def about
+      puts Dicemypass::BANNER.bold.red
+      puts 'version: '.bold + Dicemypass::VERSION.green
+      puts 'author: '.bold + 'Keelana'.green
+      puts 'homepage: '.bold + 'https://github.com/kchar92/dicemypass'.green
+      puts 'learn more: '.bold + 'https://codingdose.info'.green
+      puts # extra line, somehow I like them.
+    end
   end
 end
