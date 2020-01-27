@@ -1,8 +1,12 @@
 # Dicemypass
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dicemypass`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+ ______   ___   _______  _______  __   __  __   __  _______  _______  _______  _______ 
+|      | |   | |       ||       ||  |_|  ||  | |  ||       ||   _   ||       ||       |
+|  _    ||   | |       ||    ___||       ||  |_|  ||    _  ||  |_|  ||  _____||  _____|
+| | |   ||   | |       ||   |___ |       ||       ||   |_| ||       || |_____ | |_____ 
+| |_|   ||   | |      _||    ___||       ||_     _||    ___||       ||_____  ||_____  |
+|       ||   | |     |_ |   |___ | ||_|| |  |   |  |   |    |   _   | _____| | _____| |
+|______| |___| |_______||_______||_|   |_|  |___|  |___|    |__| |__||_______||_______|
+A simple passphrase generator that gives you a passphrase of the desired length using EFF's long wordlist.
 
 ## Installation
 
@@ -22,7 +26,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can use it as a library in your code.
+
+``` ruby
+irb(main):001:0> require 'dmp'
+=> true
+irb(main):002:0> Dmp.gen_passphrase(4)
+=> ["discount", "stove", "rubbing", "underage"]
+```
+
+Generate a passphrase
+
+```
+$ bundle exec dicemypass gen
+- Passphrase: sank universal detract plus sufferer backpedal caucasian
+```
+
+or 
+
+```
+$ bundle exec dicemypass gen 3
+- Passphrase: hemstitch hacksaw wrist
+```
+
+Generate passphrase and copy to clipboard and checks if password appears in HIBP datasets
+
+```
+$ bundle exec dmp gen 3 -c -H
+- Passphrase: imaginary mummify unsaddle
+- Copied to clipboard.
+- Password was not found in a dataset.
+```
+
+Check a password of yours
+
+```
+$ bundle exec dicemypass check
+Enter your password, press ENTER when you're done.
+Password (hidden): ******
+Your password appears in 1581 datasets!
+```
+
+
+
+
 
 ## Development
 
