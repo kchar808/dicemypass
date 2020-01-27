@@ -5,6 +5,7 @@ require 'clipboard'
 
 module Dicemypass
   class CLI < Thor
+    default_task :gen_pass
     desc 'gen [length]', 'Generate a passphrase of the desired length.'
     method_option :clipboard,
                   aliases: '-c',
