@@ -31,9 +31,9 @@ Or install it yourself as:
 You can use it as a library in your code.
 
 ``` ruby
-irb(main):001:0> require 'dmp'
+irb(main):001:0> require 'dicemypass'
 => true
-irb(main):002:0> Dmp.gen_passphrase(4)
+irb(main):002:0> Dicemypass.gen_passphrase(4)
 => ["discount", "stove", "rubbing", "underage"]
 ```
 
